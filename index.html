@@ -14,22 +14,25 @@
 
     <style>
         /* Fixed height and object-fit adjustments for tall images */
-        .swiper-container {
-            width: 100%;
-            height: 100vh; /* Occupy full viewport height for a taller display */
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;  /* Ensure the slide takes up full height */
+            overflow: visible; /* Allow image to overflow if needed */
         }
 
         .swiper-slide img {
-            width: auto; /* Keep width flexible */
-            height: 100%; /* Ensure the image takes up full height */
-            object-fit: cover; /* Maintain the aspect ratio */
-            display: block;
-            margin: 0 auto;
+            max-width: 100%;    /* Ensure image scales correctly to the container */
+            height: auto;       /* Maintain the image's aspect ratio */
+            object-fit: contain; /* Makes sure the entire image is visible */
         }
 
-        /* Other styles (if any) */
-        
-        /* Add this to the existing style block */
+        .swiper-container {
+            height: 100vh;  /* Makes sure the swiper container is as tall as the viewport */
+            overflow: hidden; /* Prevents overflow outside the swiper container */
+        }
+
         .btn-primary, .bg-primary {
             background-color: #50C3CA !important;
             border-color: #50C3CA !important;
@@ -78,6 +81,96 @@
         .swiper-pagination-bullet-active {
             background-color: #50C3CA !important;
         }
+
+        /* Carousel styles */
+        .swiper-container {
+            width: 100%;
+            height: auto;
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 600px;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .swiper-slide {
+                width: 250px;
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .swiper-slide {
+                width: 200px;
+                height: 400px;
+            }
+        }
+        
+        /* Updated carousel styles */
+        .image-carousel {
+            padding: 2rem 0;
+            overflow: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .swiper-container {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            max-width: none;
+        }
+
+        .swiper-slide {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            width: auto;
+            height: 70vh;
+            max-height: 600px;
+            object-fit: contain;
+        }
+
+        /* Position the navigation buttons */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #50C3CA;
+        }
+
+        /* Ensure the container allows for the buttons to be positioned correctly */
+        .image-carousel .container {
+            position: relative;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        /* Remove any spacing between slides */
+        .swiper-container {
+            padding: 0;
+        }
+
+        .swiper-wrapper {
+            align-items: center;
+        }
+
+        /* ... other existing styles ... */
+
     </style>
 </head>
 <body>
@@ -111,21 +204,37 @@
             <a href="download.html" class="cta-button" data-aos="zoom-in" data-aos-delay="400">Get Started</a>
         </section>
         
-        <section class="app-showcase">
-            <h2 data-aos="fade-up">App Showcase</h2>
-            <div class="swiper-container" data-aos="fade-up" data-aos-delay="200">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="screenshot1.jpg" alt="App Screenshot 1" width="720" height="1600"></div>
-                    <div class="swiper-slide"><img src="screenshot7.jpg" alt="App Screenshot 7" width="720" height="1600"></div>
-                    <div class="swiper-slide"><img src="screenshot2.jpg" alt="App Screenshot 2" width="720" height="1600"></div>
-                    <div class="swiper-slide"><img src="screenshot3.jpg" alt="App Screenshot 3" width="720" height="1600"></div>
-                    <div class="swiper-slide"><img src="screenshot4.jpg" alt="App Screenshot 4" width="720" height="1600"></div>
-                    <div class="swiper-slide"><img src="screenshot5.jpg" alt="App Screenshot 5" width="720" height="1600"></div>
-                    <div class="swiper-slide"><img src="screenshot6.jpg" alt="App Screenshot 6" width="720" height="1600"></div>
+        <section class="image-carousel my-5">
+            <h2 class="text-center mb-4" data-aos="fade-up">App Screenshots</h2>
+            <div class="container">
+                <div class="swiper-container" data-aos="fade-up" data-aos-delay="200">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="screenshot7.jpg" alt="App Screenshot 1" class="img-fluid">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="screenshot1.jpg" alt="App Screenshot 1" class="img-fluid">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="screenshot2.jpg" alt="App Screenshot 2" class="img-fluid">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="screenshot3.jpg" alt="App Screenshot 3" class="img-fluid">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="screenshot4.jpg" alt="App Screenshot 4" class="img-fluid">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="screenshot5.jpg" alt="App Screenshot 3" class="img-fluid">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="screenshot6.jpg" alt="App Screenshot 4" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </section>
 
@@ -166,7 +275,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             new Swiper('.swiper-container', {
                 slidesPerView: 1,
-                spaceBetween: 30,
+                spaceBetween: 0, // Remove space between slides
                 loop: true,
                 pagination: {
                     el: '.swiper-pagination',
@@ -175,14 +284,6 @@
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
                 },
             });
         });
