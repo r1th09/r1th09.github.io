@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #6c5ce7;
-    --secondary-color: #a29bfe;
+    --primary-color: #50C3CA;
+    --secondary-color: #3EA8AF;
     --text-color: #2d3436;
     --background-color: #f9f9f9;
     --card-background: #ffffff;
@@ -16,7 +16,7 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-color: #50C3CA; /* Teal color */
     color: white;
     text-align: center;
     padding: 2rem;
@@ -76,7 +76,8 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
     color: var(--primary-color);
 }
 
@@ -103,7 +104,7 @@ main {
 
 .cta-button {
     display: inline-block;
-    background-color: var(--primary-color);
+    background-color: #50C3CA; /* Teal color */
     color: white;
     padding: 12px 24px;
     text-decoration: none;
@@ -113,13 +114,14 @@ main {
 }
 
 .cta-button:hover {
-    background-color: var(--secondary-color);
+    background-color: #3EA8AF; /* Darker teal for hover state */
     transform: scale(1.05);
 }
 
 .app-showcase {
     margin-bottom: 4rem;
     overflow: hidden; /* Add this line to prevent horizontal scrolling */
+    padding: 2rem 0;
 }
 
 .app-showcase .swiper-container {
@@ -132,7 +134,7 @@ main {
     background-position: center;
     background-size: cover;
     width: 300px; /* You can adjust this value */
-    height: 500px; /* You can adjust this value */
+    height: 667px; /* Adjusted height to maintain aspect ratio */
 }
 
 .app-showcase .swiper-slide img {
@@ -148,7 +150,7 @@ main {
 @media (max-width: 1024px) {
     .app-showcase .swiper-slide {
         width: 250px;
-        height: 416px;
+        height: 556px; /* Adjusted height for smaller screens */
     }
 }
 
@@ -183,8 +185,8 @@ main {
 }
 
 .feature-item i {
+    color: #50C3CA; /* Teal color */
     font-size: 3rem;
-    color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
@@ -228,4 +230,66 @@ footer {
     .hero p {
         font-size: 1.2rem;
     }
+}
+
+.navbar-dark.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #ffffff;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+/* Add this to the end of the file */
+.navbar-dark .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--text-color);
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--primary-color);
 }
